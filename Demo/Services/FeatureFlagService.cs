@@ -35,6 +35,11 @@ namespace Demo.Services
             return flags?.ToModel();
         }
 
+        /// <summary>
+        /// Adds a collection of feature flags to the database.
+        /// </summary>
+        /// <param name="featureFlag">The collection of feature flags to add.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the added feature flags.</returns>
         public async Task<IEnumerable<FeatureFlag>> AddFeatureFlagsAsync(IEnumerable<FeatureFlag> featureFlag)
         {
             var entities = featureFlag.Select(f => new FeatureFlagEntity
@@ -51,7 +56,11 @@ namespace Demo.Services
             return entities.Select(f => f.ToModel());
         }
 
-
+        /// <summary>
+        /// Updates a feature flag in the database.
+        /// </summary>
+        /// <param name="featureFlag">The feature flag to update.</param>
+        /// <returns>The updated feature flag.</returns>
         public async Task<FeatureFlag> UpdateFeatureFlagAsync(FeatureFlag featureFlag)
         {
             var entity = await _dbContext.FeatureFlags.FirstOrDefaultAsync(f => f.Name == featureFlag.Name);
@@ -68,7 +77,10 @@ namespace Demo.Services
             return entity.ToModel();
         }
 
-
+        /// <summary>
+        /// Retrieves all feature flags.
+        /// </summary>
+        /// <returns>A collection of feature flags.</returns>
         public async Task<IEnumerable<FeatureFlag>> GetAllFeatureFlagsAsync()
         {
             var flags = await _dbContext.FeatureFlags.ToListAsync();
