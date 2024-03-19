@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Demo.Data;
+﻿using Demo.Data;
 using Microsoft.EntityFrameworkCore;
 using Demo.Services;
 
@@ -14,7 +13,6 @@ builder.Services.AddDbContext<FeatureFlagDbContext>(options =>
 builder.Services.AddScoped<IFeatureFlagService, FeatureFlagService>();
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
