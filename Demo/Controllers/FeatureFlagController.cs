@@ -65,6 +65,16 @@ namespace Demo.Controllers
         /// <summary>
         /// Updates a feature flag.
         /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     PUT /api/featureflag
+        ///     {
+        ///         "name": "Feature1",
+        ///         "isEnabled": true 
+        ///      }
+        ///         
+        /// </remarks>
         /// <param name="featureFlag">The feature flag to update.</param>
         /// <returns>An <see cref="IActionResult"/> representing the response of the operation.</returns>
         /// <response code="200">The updated feature flag.</response>
